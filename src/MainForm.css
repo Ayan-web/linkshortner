@@ -1,0 +1,37 @@
+.mainContainer{
+    display: grid;
+    place-items: center;
+    /* height: 100vh; */
+}
+.inputForm{
+    display: flex;
+    background-color:rgba(229, 229, 229, 1);
+    padding: 10px 10px 10px 10px;
+    border-radius: 18px;
+    width: 700px;
+    height: 25px;
+    position: relative;
+    right: 200px;
+}
+.textField{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 16px;
+}
+.Svgbutton{
+    scale: 40%;
+    position: relative;
+    bottom: 30px;
+    cursor: pointer;
+}
+@media (max-width:375px)
+{
+    .inputForm{
+        width:auto;
+        position: relative;
+        right: auto;
+        top:50vh
+    }
+}

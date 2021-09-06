@@ -1,0 +1,9 @@
+.bigC{
+    display: flex;
+}
+@media (max-width:375px)
+{
+    .svgElement{
+        display: none;
+    }
+}

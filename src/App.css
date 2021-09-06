@@ -1,0 +1,10 @@
+.Container{
+    position: relative;
+    left: 100px;
+}
+@media (max-width:375px)
+{
+    .Container{
+        position:static;
+    }
+}
