@@ -27,13 +27,16 @@ exports.pushLink = async function (url)
         await db.collection('links').insertOne({_id:hash,uniqueId:uniqueId,url:url})
     }
     catch(err){
-        if(err.code!=11000)
-            return 'somthing went wrong'
+        if(err.code===11000)
+        {
+            const link = await db.collection('links').findOne({_id:hash})
+            return link.uniqueId
+        }
     }
     finally{
         client.close()
     }
-    return hash
+    return uniqueId
 }
 
 /**
