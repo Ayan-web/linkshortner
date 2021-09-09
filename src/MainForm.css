@@ -20,6 +20,12 @@
     flex-grow: 1;
     font-size: 16px;
 }
+.TickSvg{
+    scale:40%;
+    position: relative;
+    bottom: 16px;
+    cursor: pointer;
+}
 .Svgbutton{
     scale: 40%;
     position: relative;

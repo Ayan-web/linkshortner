@@ -2,11 +2,13 @@ import React from "react";
 import "./MainForm.css";
 import Shortner from "./shortner.svg";
 import CopyIcon from "./CopySvg.svg";
+import Copied from "./Copied.svg"
 import { useState } from "react";
 
 export default function MainForm() {
   const [text, setText] = useState("");
   const [copy, setCopy] = useState(false);
+  const [copied, setCopied ] = useState(false)
 
   return (
     <>
@@ -16,14 +18,25 @@ export default function MainForm() {
             className="textField"
             type="text"
             value={text}
+            onFocus={(e)=>e.target.select()}
             onChange={(e) => {
               setText(e.target.value);
               setCopy(false);
+              setCopied(false)
             }}
           />
           {copy ? (
-            <CopyIcon className="Svgbutton" />
-          ) : (
+            <CopyIcon 
+            onClick={async ()=>{
+              navigator.clipboard.writeText(text)
+              setCopy(false)
+              setCopied(true)
+            }}
+            className="Svgbutton" />
+          ) :copied ? 
+          (<Copied
+            className="TickSvg"
+          />):(
             <Shortner
               onClick={async () => {
                 const encoded = escape(text);
